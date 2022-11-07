@@ -1,0 +1,62 @@
+<div class="parent">
+    <h1>Welcome {{user}}</h1>
+    <div>
+        <a routerLink="/transaction"> Get the Transaction details</a>
+    </div>
+    <div class="child">
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="../../assets/images/banklogo.jpg" alt="">
+                </div>
+                <div class="text-center mt-4">
+                    <h3>Deposit</h3>
+                </div>
+                <form class="p-3 mt-3">
+                    <div class="form-field d-flex mt-2">
+                        <span class="far fa-user"></span>
+                        <input [(ngModel)]="acno" class="form-control" type="text" id="depo_accno" name="acno" placeholder="Account number">
+                    </div>
+                    <div class="form-field d-flex mt-2">
+                        <span class="far fa-user"></span>
+                        <input [(ngModel)]="pswd"  class="form-control" type="password" id="depo_pswd" name="pswd" placeholder="password">
+                    </div>
+                    <div class="form-field d-flex mt-2">
+                        <span class="far fa-user"></span>
+                        <input [(ngModel)]="amount" class="form-control" type="text" id="depo_amt" name="amount" placeholder="Amount">
+                    </div>
+                    <button type="button" class="btn btn-primary mt-3" (click)="deposit()">Deposit</button>
+                </form>
+                <div class="text-center fs-6">
+                     <a href="index.html">Sign in</a>
+                </div>
+            </div>
+    </div>
+    <div class="child">
+        <div class="wrapper">
+            <div class="logo">
+                <img src="../../assets/images/banklogo.jpg" alt="">
+            </div>
+            <div class="text-center mt-4">
+                <h3>Withdraw</h3>
+            </div>
+            <form class="p-3 mt-3">
+                <div class="form-field d-flex mt-2">
+                    <span class="far fa-user"></span>
+                    <input [(ngModel)]="acno1" class="form-control" type="text" id="with_accno" name="acno1" placeholder="Account number">
+                </div>
+                <div class="form-field d-flex mt-2">
+                    <span class="far fa-user"></span>
+                    <input [(ngModel)]="pswd1"  class="form-control" type="password" id="with_pswd" name="pswd1" placeholder="password">
+                </div>
+                <div class="form-field d-flex mt-2">
+                    <span class="far fa-user"></span>
+                    <input [(ngModel)]="amount1" class="form-control" type="text" id="with_amt" name="amount1" placeholder="Amount">
+                </div>
+                <button type="button" class="btn btn-primary mt-3" (click)="withdraw()">Withdraw</button>
+            </form>
+            <div class="text-center fs-6">
+                 <a href="index.html">Sign in</a>
+            </div>
+        </div>
+    </div>
+</div>

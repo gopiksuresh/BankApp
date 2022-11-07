@@ -7,21 +7,22 @@
             </div>
             <div class="text-center mt-4">
                 <h3> My Bank</h3>
+                <h6>{{aim}}</h6>
             </div>
             <form class="p-3 mt-3">
                 <div class="form-field d-flex">
                     <span class="far fa-user"></span>
-                    <input class="form-control" type="text" id="reg_uname" name="userName" placeholder="username">
+                    <input [(ngModel)]="uname" class="form-control" type="text" id="reg_uname" name="uname" placeholder="username">
                 </div>
                 <div class="form-field d-flex mt-2">
                     <span class="far fa-user"></span>
-                    <input class="form-control" type="text" id="reg_accno" name="accountNumber" placeholder="Account number">
+                    <input [(ngModel)]="acno" class="form-control" type="text" id="reg_accno" name="acno" placeholder="Account number">
                 </div>
                 <div class="form-field d-flex mt-2">
                     <span class="far fa-user"></span>
-                    <input class="form-control" type="password" id="reg_pswd" name="passWord" placeholder="password">
+                    <input [(ngModel)]="pswd"  class="form-control" type="password" id="reg_pswd" name="pswd" placeholder="password">
                 </div>
-                <button type="button" class="btn btn-primary mt-3" onclick="register()">Register</button>
+                <button type="button" class="btn btn-primary mt-3" (click)="register()">Register</button>
             </form>
             <div class="text-center fs-6">
                  <a href="index.html">Sign in</a>

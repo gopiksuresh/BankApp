@@ -13,3 +13,12 @@
    b)1.2 :- view -> component [html -> ts]
 
     i) Event binding - (event name) = "function name()"
+    ii)Event binding using ($event) - (event name)= "function name()"
+
+
+
+Angular Routing:- to set a path for a component
+
+{
+  path:value, component: component class name
+}

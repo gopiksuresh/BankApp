@@ -12,16 +12,16 @@
             <form class="p-3 mt-3">
                 <div class="form-field d-flex">
                     <span class="far fa-user"></span>
-                    <input (change)="acnoChange($event)" class="form-control" type="text" id="login_acno" name="accountNumber" [placeholder]="accounts">
+                    <input [(ngModel)]="acno" class="form-control" type="text" id="login_acno" name="acno" [placeholder]="accounts">
                 </div>
                 <div class="form-field d-flex mt-2">
                     <span class="far fa-user"></span>
-                    <input (change)="pswdChange($event)" class="form-control" type="password" id="login_pswd" name="passWord" placeholder="password">
+                    <input [(ngModel)]="pswd" class="form-control" type="password" id="login_pswd" name="pswd" placeholder="password">
                 </div>
                 <button type="button" class="btn btn-primary mt-3" (click)="login()">Login</button>
             </form>
             <div class="text-center fs-6">
-                <a href="">Forgot password?</a> or <a href="./signup.html">Sign up</a>
+                <a href="">Forgot password?</a> or <a routerLink="register">Sign up</a>
             </div>
         </div>
     </div>
