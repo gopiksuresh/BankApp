@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
@@ -15,17 +16,23 @@ export class RegisterComponent implements OnInit {
     pswd ="";
     balance: any ="";
     aim='Your perfect banking partner';
+    //register forms
+    registerForm=this.fb.group({
+      uname:[''],
+      acno:[''],
+      pswd:['']
+    })
 
-    constructor(private ds:DataService, private router:Router) {}   //dependency injection
+    constructor(private fb:FormBuilder, private ds:DataService, private router:Router) {}   //dependency injection
   
 
   ngOnInit(): void {
   }
 
   register(){
-    var uname=this.uname;
-    var acno=this.acno;
-    var pswd=this.pswd;
+    var uname=this.registerForm.value.uname;
+    var acno=this.registerForm.value.acno;
+    var pswd=this.registerForm.value.pswd;
     const result= this.ds.register(acno,uname,pswd);
     if(result)
     {

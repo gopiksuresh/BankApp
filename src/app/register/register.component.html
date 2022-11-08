@@ -9,23 +9,26 @@
                 <h3> My Bank</h3>
                 <h6>{{aim}}</h6>
             </div>
-            <form class="p-3 mt-3">
+            <form [formGroup]="registerForm" class="p-3 mt-3">
                 <div class="form-field d-flex">
                     <span class="far fa-user"></span>
-                    <input [(ngModel)]="uname" class="form-control" type="text" id="reg_uname" name="uname" placeholder="username">
+                    <input formControlName="uname" class="form-control" type="text" id="reg_uname" name="uname" placeholder="username">
                 </div>
                 <div class="form-field d-flex mt-2">
                     <span class="far fa-user"></span>
-                    <input [(ngModel)]="acno" class="form-control" type="text" id="reg_accno" name="acno" placeholder="Account number">
+                    <input formControlName="acno" class="form-control" type="text" id="reg_accno" name="acno" placeholder="Account number">
                 </div>
                 <div class="form-field d-flex mt-2">
                     <span class="far fa-user"></span>
-                    <input [(ngModel)]="pswd"  class="form-control" type="password" id="reg_pswd" name="pswd" placeholder="password">
+                    <input formControlName="pswd"  class="form-control" type="password" id="reg_pswd" name="pswd" placeholder="password">
                 </div>
-                <button type="button" class="btn btn-primary mt-3" (click)="register()">Register</button>
+                <!-- <button type="button" class="btn btn-primary mt-3" (click)="register()">Register</button> -->
+                <div class="d-grid gap-4">
+                    <button class="btn btn-primary mt-3" type="button" (click)="register()">Register</button>
+                </div>
             </form>
             <div class="text-center fs-6">
-                 <a href="index.html">Sign in</a>
+                 <a routerLink="login">Login</a>
             </div>
         </div>
     </div>

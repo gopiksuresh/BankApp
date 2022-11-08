@@ -5,20 +5,23 @@
             <div class="logo">
                 <img src="../../assets/images/banklogo.jpg" alt="">
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center mt-2">
                 <h3>My Bank</h3>
                 <h6>{{aim}}</h6>
             </div>
-            <form class="p-3 mt-3">
-                <div class="form-field d-flex">
-                    <span class="far fa-user"></span>
+            <form class="mt-3">
+                <div class="form-field d-flex mt-2">
+                    <span class="far fa-user mt-2"></span>
                     <input [(ngModel)]="acno" class="form-control" type="text" id="login_acno" name="acno" [placeholder]="accounts">
                 </div>
-                <div class="form-field d-flex mt-2">
-                    <span class="far fa-user"></span>
+                <div class="form-field d-flex mt-4">
+                    <span class="far fa-user mt-2"></span>
                     <input [(ngModel)]="pswd" class="form-control" type="password" id="login_pswd" name="pswd" placeholder="password">
                 </div>
-                <button type="button" class="btn btn-primary mt-3" (click)="login()">Login</button>
+                <!-- <button type="button" class="btn btn-primary mt-3" (click)="login()">Login</button> -->
+                <div class="d-grid gap-4">
+                    <button class="btn btn-primary mt-3" type="button" (click)="login()">Login</button>
+                </div>
             </form>
             <div class="text-center fs-6">
                 <a href="">Forgot password?</a> or <a routerLink="register">Sign up</a>

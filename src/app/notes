@@ -22,3 +22,21 @@ Angular Routing:- to set a path for a component
 {
   path:value, component: component class name
 }
+
+
+Angular directives:- to manipulate DOM elements
+
+1) Component directives
+
+2) Structural directives
+  i) ngFor
+
+Angular Forms:-
+
+1) Template driven Forms( first html design):- used for html page designing
+2) Model driven forms( first ts file -> html design) :- used for advanced  validation methods
+  i)Reactive Forms Module :- [form group,array,control]
+   - we can directly add vallidation methods
+   - -> Add validation
+     -> import Reactive forms modules
+

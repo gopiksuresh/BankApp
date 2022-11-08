@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   currentUser:any;
+  currentAcno:any;
 
   userDetails:any={   // objects of objects
     1000:{acno:1000,username:"gopik",password:1000,balance:10000,transaction:[]},
@@ -43,7 +44,8 @@ export class DataService {
     {
       if(pswd==userDetails[acno].password)
       {
-        this.currentUser= this.userDetails[acno].username;
+        this.currentUser = this.userDetails[acno].username;
+        this.currentAcno = acno;
         return true;
       }
       else{
@@ -118,4 +120,11 @@ export class DataService {
       return false;
     }
   }
+
+   getTransaction(acno:any)
+   {
+    return this.userDetails[acno]['transaction'];
+   }
+
 }
+
