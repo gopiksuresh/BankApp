@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -10,16 +11,27 @@ export class DashboardComponent implements OnInit {
   // login user name
   user = "";
   //deposit
-  acno = "";
-  pswd = "";
-  amount = "";
+  // acno = "";
+  // pswd = "";
+  // amount = "";
+  depositForm=this.fb.group({
+    amount:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]*')]]
+  })
 
   //withdraw
-  acno1 = "";
-  pswd1 = "";
-  amount1 = "";
+  // acno1 = "";
+  // pswd1 = "";
+  // amount1 = "";
+  withdrawForm=this.fb.group({
+    amount1:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    acno1:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd1:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]*')]]
+  })
 
-  constructor(private ds:DataService) { 
+
+  constructor(private fb:FormBuilder,private ds:DataService) { 
     this.user= this.ds.currentUser;
   }
 
@@ -28,33 +40,45 @@ export class DashboardComponent implements OnInit {
 
   deposit()
   {
-    var acno =this.acno;
-    var pswd =this.pswd;
-    var amount=this.amount;
+    if(this.depositForm.valid)
+    {
+    var acno =this.depositForm.value.acno;
+    var pswd =this.depositForm.value.pswd;
+    var amount=this.depositForm.value.amount;
     const result= this.ds.deposit(acno,pswd,amount);
     if(result)
     {
       alert(`${amount} is credited... balance is ${result}`);
     }
-    this.amount='';
-    this.acno='';
-    this.pswd='';
-  }
+    this.depositForm.value.amount='';
+    this.depositForm.value.acno='';
+    this.depositForm.value.pswd='';
+   }
+   else{
+    console.log(this.depositForm.get('uname')?.errors);
+   }
+  }  
 
 
   withdraw()
   {
-    var acno =this.acno1;
-    var pswd =this.pswd1;
-    var amount=this.amount1;
+    if(this.withdrawForm.valid)
+    {
+    var acno =this.withdrawForm.value.acno1;
+    var pswd =this.withdrawForm.value.pswd1;
+    var amount=this.withdrawForm.value.amount1;
     const result= this.ds.withdraw(acno,pswd,amount);
     if(result)
     {
       alert(`${amount} is debited... balance is ${result}`);
     }
-    this.amount1='';
-    this.acno1='';
-    this.pswd1='';
+    this.withdrawForm.value.amount1='';
+    this.withdrawForm.value.acno1='';
+    this.withdrawForm.value.pswd1='';
+  }
+  else{
+    console.log(this.withdrawForm.get('uname')?.errors);
   }
 
+ }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,16 +11,16 @@ import { FormBuilder } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
 
-    uname ="";
-    acno ="";
-    pswd ="";
-    balance: any ="";
+    // uname ="";
+    // acno ="";
+    // pswd ="";
+    // balance: any ="";
     aim='Your perfect banking partner';
     //register forms
     registerForm=this.fb.group({
-      uname:[''],
-      acno:[''],
-      pswd:['']
+      uname:['',[Validators.required,Validators.pattern('[a-zA-Z]*')]],
+      acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+      pswd:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]*')]]
     })
 
     constructor(private fb:FormBuilder, private ds:DataService, private router:Router) {}   //dependency injection
@@ -30,6 +30,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    console.log(this.registerForm);
+    if(this.registerForm.valid){
     var uname=this.registerForm.value.uname;
     var acno=this.registerForm.value.acno;
     var pswd=this.registerForm.value.pswd;
@@ -42,6 +44,10 @@ export class RegisterComponent implements OnInit {
     else{
       alert('something went wrong');
     }
+  }
+  else{
+    console.log(this.registerForm.get('uname')?.errors);
+  }
     // alert('register button clicked');
   }
 

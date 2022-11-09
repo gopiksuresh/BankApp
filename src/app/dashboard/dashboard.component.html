@@ -17,19 +17,22 @@
                 <div class="text-center mt-4">
                     <h3>Deposit</h3>
                 </div>
-                <form class="p-2 mt-3">
+                <form [formGroup]="depositForm" class="p-2 mt-3">
                     <div class="form-field d-flex mt-2">
                         <span class="far fa-user"></span>
-                        <input [(ngModel)]="acno" class="form-control" type="text" id="depo_accno" name="acno" placeholder="Account number">
+                        <input formControlName="acno" class="form-control" type="text" id="depo_accno" name="acno" placeholder="Account number">
                     </div>
+                    <div *ngIf="this.depositForm.get('acno')?.touched && this.depositForm.get('acno')?.errors" style="color:red;">Invalid acno</div>
                     <div class="form-field d-flex mt-3">
                         <span class="far fa-user"></span>
-                        <input [(ngModel)]="pswd"  class="form-control" type="password" id="depo_pswd" name="pswd" placeholder="password">
+                        <input formControlName="pswd"  class="form-control" type="password" id="depo_pswd" name="pswd" placeholder="password">
                     </div>
+                    <div *ngIf="this.depositForm.get('pswd')?.touched && this.depositForm.get('pswd')?.errors" style="color:red;">Invalid password</div>
                     <div class="form-field d-flex mt-3">
                         <span class="far fa-user"></span>
-                        <input [(ngModel)]="amount" class="form-control" type="text" id="depo_amt" name="amount" placeholder="Amount">
+                        <input formControlName="amount" class="form-control" type="text" id="depo_amt" name="amount" placeholder="Amount">
                     </div>
+                    <div *ngIf="this.depositForm.get('amount')?.touched && this.depositForm.get('amount')?.errors" style="color:red;">Invalid amount</div>
                     <!-- <button type="button" class="btn btn-primary mt-3" (click)="deposit()">Deposit</button> -->
                     <div class="d-grid gap-4">
                         <button class="btn btn-primary mt-3 p-2" type="button" (click)="deposit()">Deposit</button>
@@ -46,19 +49,22 @@
             <div class="text-center mt-4">
                 <h3>Withdraw</h3>
             </div>
-            <form class="p-2 mt-3">
+            <form [formGroup]="withdrawForm" class="p-2 mt-3">
                 <div class="form-field d-flex mt-2">
                     <span class="far fa-user"></span>
-                    <input [(ngModel)]="acno1" class="form-control" type="text" id="with_accno" name="acno1" placeholder="Account number">
+                    <input formControlName="acno1" class="form-control" type="text" id="with_accno" name="acno1" placeholder="Account number">
                 </div>
+                <div *ngIf="this.withdrawForm.get('acno1')?.touched && this.withdrawForm.get('acno1')?.errors" style="color:red;">Invalid acno</div>
                 <div class="form-field d-flex mt-3">
                     <span class="far fa-user"></span>
-                    <input [(ngModel)]="pswd1"  class="form-control" type="password" id="with_pswd" name="pswd1" placeholder="password">
+                    <input formControlName="pswd1"  class="form-control" type="password" id="with_pswd" name="pswd1" placeholder="password">
                 </div>
+                <div *ngIf="this.withdrawForm.get('pswd1')?.touched && this.withdrawForm.get('pswd1')?.errors" style="color:red;">Invalid password</div>
                 <div class="form-field d-flex mt-3">
                     <span class="far fa-user"></span>
-                    <input [(ngModel)]="amount1" class="form-control" type="text" id="with_amt" name="amount1" placeholder="Amount">
+                    <input formControlName="amount1" class="form-control" type="text" id="with_amt" name="amount1" placeholder="Amount">
                 </div>
+                <div *ngIf="this.withdrawForm.get('amount1')?.touched && this.withdrawForm.get('amount1')?.errors" style="color:red;">Invalid amount</div>
                 <!-- <button type="button" class="btn btn-primary mt-3" (click)="withdraw()">Withdraw</button> -->
                 <div class="d-grid gap-4">
                     <button class="btn btn-primary mt-3 p-2" type="button" (click)="withdraw()">Withdraw</button>
