@@ -1,42 +1,64 @@
-1) Data Binding :- Sharing data inside a component
+1. Data Binding  -  Sharing data inside a component
 
-  i)one way Binding
-   html -> ts  OR ts-> html
-   ts:- component
-   html:- view
+  i. One Way Binding
+      html -> ts  OR ts-> html
+      ts - component
+      html - view
 
-   a)1.1 :- component -> view [ts -> html]
+      a. Component -> View [ts -> html]
 
-    i)  string interpolation - {{expression}}
-    ii) property binding - [attribute] = "property"
+          string interpolation - {{expression}}
+          property binding - [attribute] = "property"
 
-   b)1.2 :- view -> component [html -> ts]
+      b. View -> Component [html -> ts]
 
-    i) Event binding - (event name) = "function name()"
-    ii)Event binding using ($event) - (event name)= "function name()"
+          Event binding - (event name) = "function name()"
+          Event binding using ($event) - (event name)= "function name()"
+
+  ii. Two Way Binding
+
+2. Angular Routing - to set a path for a component
+    {
+        path:value, component: component class name
+    }
 
 
+3. Angular directives - to manipulate DOM elements
 
-Angular Routing:- to set a path for a component
+3. Component directives
 
-{
-  path:value, component: component class name
-}
+4. Structural directives
+    a. ngFor
 
+5. Angular Forms:-
 
-Angular directives:- to manipulate DOM elements
+    a. Template driven Forms( first html design) - used for html page designing
+    b. Model driven forms( first ts file -> html design) - used for advanced  validation methods
+        i. Reactive Forms Module - [form group,array,control]
+            we can directly add vallidation methods
+            Add validation
+            import Reactive forms modules
 
-1) Component directives
+6. Local Storage
+    setItem
+    getItem
+    removeItem
 
-2) Structural directives
-  i) ngFor
+7. Parent Child Communication
+    Parent to child communication  -  @Input()
+    Child to parent communication  -  @Output()
 
-Angular Forms:-
+8. Angular Pipes
+    {{value-expression | date [:format [timezone]]}}
 
-1) Template driven Forms( first html design):- used for html page designing
-2) Model driven forms( first ts file -> html design) :- used for advanced  validation methods
-  i)Reactive Forms Module :- [form group,array,control]
-   - we can directly add vallidation methods
-   - -> Add validation
-     -> import Reactive forms modules
+9. Frontend and Backend Integration
+    Import HTTPClientModule  -  for creating HTTP Request
+    Inject HTTPClient
+    Using HTTPClientModule  -  for using API 
 
+10. Asynchronous call
+        RxJs - Reactive Extension for JavaScript
+            =>To solve asynchronous request events
+    i. Observable (Alternate of Promise)
+        a. Resolve - subscribe()
+        b. Reject - catch()

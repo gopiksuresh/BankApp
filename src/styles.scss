@@ -4,3 +4,37 @@
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
  
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+.wrapper {
+    max-width: 300px;
+    min-height: 350px;
+    margin: 80px auto;
+    padding: 40px !important;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+    font-family: 'Forum', cursive !important;
+}
+h3{
+    font-weight: bolder;
+    color: rgb(52, 98, 63);
+}
+h6{
+    color: rgb(52, 98, 63);
+}
+.logo {
+    width: 80px;
+    margin: auto !important;
+    text-align: center !important;
+    color: rgb(52, 98, 63)!important;
+}
+i:hover{
+    color:rgb(118, 137, 72) !important;
+}
+input::placeholder{
+    font-size: 12px
+}
+#logb{
+    background-color: rgb(52, 98, 63);
+    color: rgb(179, 156, 77);
+}

@@ -3,35 +3,44 @@
     <div class="col-4">
         <div class="wrapper">
             <div class="logo">
-                <img src="../../assets/images/banklogo.jpg" alt="">
+                <i class="fa fa-bank" style="font-size:36px;"></i>
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center mt-2">
                 <h3> My Bank</h3>
                 <h6>{{aim}}</h6>
             </div>
-            <form [formGroup]="registerForm" class="p-3 mt-3">
+            <form [formGroup]="registerForm" class="mt-3">
                 <div class="form-field d-flex">
-                    <span class="far fa-user"></span>
-                    <input formControlName="uname" class="form-control" type="text" id="reg_uname" name="uname" placeholder="username">
+                    <!-- <span class="far fa-user"></span> -->
+                    <input formControlName="uname" class="form-control" type="text" id="reg_uname" name="uname"
+                        placeholder="Username">
                 </div>
-                <div *ngIf="this.registerForm.get('uname')?.touched && this.registerForm.get('uname')?.errors" style="color:red;">Invalid user</div>
+                <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched"
+                    style="color: red; font-size: 12px;">Invalid user</div>
+
                 <div class="form-field d-flex mt-2">
-                    <span class="far fa-user"></span>
-                    <input formControlName="acno" class="form-control" type="text" id="reg_accno" name="acno" placeholder="Account number">
+                    <!-- <span class="far fa-user"></span> -->
+                    <input formControlName="acno" class="form-control" type="text" id="reg_accno" name="acno"
+                        placeholder="Account Number">
                 </div>
-                <div *ngIf="this.registerForm.get('acno')?.touched && this.registerForm.get('acno')?.errors" style="color:red;">Invalid acno</div>
+                <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched"
+                    style="color: red; font-size: 12px;">Invalid account number</div>
+
                 <div class="form-field d-flex mt-2">
-                    <span class="far fa-user"></span>
-                    <input formControlName="pswd"  class="form-control" type="password" id="reg_pswd" name="pswd" placeholder="password">
+                    <!-- <span class="far fa-user"></span> -->
+                    <input formControlName="pswd" class="form-control" type="password" id="reg_pswd" name="pswd"
+                        placeholder="Password">
                 </div>
-                <div *ngIf="this.registerForm.get('pswd')?.touched && this.registerForm.get('pswd')?.errors" style="color:red;">Invalid password</div>
+                <div *ngIf="this.registerForm.get('pswd')?.errors&&this.registerForm.get('pswd')?.touched"
+                    style="color: red; font-size: 12px;">Invalid password</div>
+
                 <!-- <button type="button" class="btn btn-primary mt-3" (click)="register()">Register</button> -->
                 <div class="d-grid gap-4">
-                    <button class="btn btn-primary mt-3" type="button" (click)="register()">Register</button>
+                    <button id="logb" class="btn btn-primary mt-3" type="button" (click)="register()">Register</button>
                 </div>
             </form>
-            <div class="text-center fs-6">
-                 <a routerLink="login">Login</a>
+            <div class="text-center mt-3" style="font-size:12px ;">
+                Already a user? <a routerLink="">Login</a>
             </div>
         </div>
     </div>
